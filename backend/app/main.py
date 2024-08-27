@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.auth.auth import auth_router
-from app.websockets.chat import chat_router
-from app.database import init_db
+from auth.auth import auth_router
+from websockets.chat import chat_router
+from database import init_db
 
 app = FastAPI()
 
@@ -18,7 +18,7 @@ app.add_middleware(
 # Inicializar la base de datos al inicio de la aplicación
 @app.life_span("startup")
 async def startup_event():
-    await init_db()
+    await init_db() 
 
 # Ruta básica para verificar que la API está funcionando
 @app.get("/")
