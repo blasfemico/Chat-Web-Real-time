@@ -66,3 +66,8 @@ class MessageCRUD:
 
     def get_by_room(self, room_id: int, skip: int = 0, limit: int = 100):
         return self.db.query(Message).filter(Message.room_id == room_id).offset(skip).limit(limit).all()
+
+
+
+
+# alejandro gay
